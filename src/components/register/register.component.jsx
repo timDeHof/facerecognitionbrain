@@ -1,23 +1,23 @@
-import React from "react";
-import "./register.styles.css";
+import React from "react"
+import "./register.styles.css"
 class Register extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       email: "",
       password: "",
       name: "",
-    };
+    }
   }
   onEmailChange = (event) => {
-    this.setState({ email: event.target.value });
-  };
+    this.setState({ email: event.target.value })
+  }
   onPasswordChange = (event) => {
-    this.setState({ password: event.target.value });
-  };
+    this.setState({ password: event.target.value })
+  }
   onNameChange = (event) => {
-    this.setState({ name: event.target.value });
-  };
+    this.setState({ name: event.target.value })
+  }
 
   onSubmitRegister = () => {
     fetch("http://localhost:3000/register", {
@@ -31,12 +31,12 @@ class Register extends React.Component {
     })
       .then((response) => response.json())
       .then((user) => {
-        if (user) {
-          this.props.loadUser(user);
-          this.props.onRouteChange("home");
+        if (user.id) {
+          this.props.loadUser(user)
+          this.props.onRouteChange("home")
         }
-      });
-  };
+      })
+  }
   render() {
     return (
       <article className='br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center'>
@@ -91,8 +91,8 @@ class Register extends React.Component {
           </div>
         </main>
       </article>
-    );
+    )
   }
 }
 
-export default Register;
+export default Register
