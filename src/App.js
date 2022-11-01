@@ -13,7 +13,7 @@ import "./App.css"
 const initialState = {
   input: "",
   imageUrl: "",
-  box: [],
+  box: {},
   route: "signin",
   isSignedIn: false,
   user: {
@@ -82,9 +82,10 @@ class App extends Component {
             }),
           })
             .then((response) => response.json())
-            .then((count) => {
-              this.setState(Object.assign(this.state.user, { entries: count }))
-            })
+            .then(console.log(response))
+            // .then((count) => {
+            //   this.setState(Object.assign(this.state.user, { entries: count }))
+            // })
             .catch(console.log)
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
@@ -118,7 +119,7 @@ class App extends Component {
             <FaceRecognition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" ? (
-          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+          <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         )}
