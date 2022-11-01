@@ -42,7 +42,6 @@ class App extends Component {
   }
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box
-    console.log(clarifaiFace)
     const image = document.getElementById("inputimage")
     const width = Number(image.width)
     const height = Number(image.height)
@@ -63,7 +62,6 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input })
-    console.log(this.imageUrl)
     fetch("http://localhost:3000/imageurl", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -82,10 +80,10 @@ class App extends Component {
             }),
           })
             .then((response) => response.json())
-            .then(console.log(response))
-            // .then((count) => {
-            //   this.setState(Object.assign(this.state.user, { entries: count }))
-            // })
+            .then((count) => {
+              this.setState(Object.assign(this.state.user, count))
+              //this.setState((prevState) => ({ ...prevState.entries, entries: count }))
+            })
             .catch(console.log)
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
