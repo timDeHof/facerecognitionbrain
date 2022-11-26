@@ -16,7 +16,6 @@ const FaceRecognition = ({ imageUrl, box }) => {
         }}></div>
     )
   })
-  console.log(bounding_box_html)
   return (
     <div className='center ma'>
       <div className='absolute mt2'>
