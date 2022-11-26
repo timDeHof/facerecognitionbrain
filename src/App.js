@@ -41,15 +41,14 @@ class App extends Component {
     })
   }
   calculateFaceLocation = (data) => {
-    console.log(data)
     const image = document.getElementById("inputimage")
     const width = Number(image.width)
     const height = Number(image.height)
     const foundRegions = data.outputs[0].data.regions
-    console.log(foundRegions)
+
     const bounding_box_list = foundRegions.map((region) => {
       const clarifaiFace = region.region_info.bounding_box
-      console.log(clarifaiFace)
+
       return {
         leftCol: clarifaiFace.left_col * width,
         topRow: clarifaiFace.top_row * height,
@@ -57,7 +56,7 @@ class App extends Component {
         bottomRow: height - clarifaiFace.bottom_row * height,
       }
     })
-    console.table(bounding_box_list)
+
     return bounding_box_list
   }
 
@@ -70,7 +69,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input })
-    fetch("https://rocky-wave-48098.herokuapp.com/imageurl", {
+    fetch("https://smartbrain-api-f1v5.onrender.com/imageurl", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -80,7 +79,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("https://rocky-wave-48098.herokuapp.com/image", {
+          fetch("https://smartbrain-api-f1v5.onrender.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
