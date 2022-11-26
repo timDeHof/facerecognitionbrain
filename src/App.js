@@ -70,7 +70,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input })
-    fetch("https://rocky-wave-48098.herokuapp.com/imageurl", {
+    fetch("https://smartbrain-api-f1v5.onrender.com/imageurl", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -80,7 +80,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("https://rocky-wave-48098.herokuapp.com/image", {
+          fetch("https://smartbrain-api-f1v5.onrender.com/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

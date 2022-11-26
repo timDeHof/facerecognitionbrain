@@ -20,7 +20,7 @@ class Register extends React.Component {
   }
 
   onSubmitRegister = () => {
-    fetch("https://rocky-wave-48098.herokuapp.com/register", {
+    fetch("https://smartbrain-api-f1v5.onrender.com/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
