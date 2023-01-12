@@ -71,7 +71,10 @@ class App extends Component {
     this.setState({ imageUrl: this.state.input })
     fetch("https://smartbrain-api-f1v5.onrender.com/imageurl", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
         input: this.state.input,
       }),
