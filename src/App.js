@@ -116,7 +116,7 @@ class App extends Component {
         <ParticlesBg className='particles' color='#ffffff' num={300} type='cobweb' bg={true} />
         <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
         {route === "home" ? (
-          <div>
+          <div className='center'>
             <Logo />
             <Rank name={this.state.user.name} entries={this.state.user.entries} />
             <ImageLinkForm
