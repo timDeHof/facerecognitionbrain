@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0b5ff10e-cc58-4c5e-b807-6c05ba3b779e/deploy-status)](https://app.netlify.com/sites/big-smart-brain/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
