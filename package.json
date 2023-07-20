@@ -3,18 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@sentry/cli": "^2.19.4",
+    "@sentry/react": "^7.59.3",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "clarifai": "^2.9.1",
     "particles-bg": "^2.5.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-parallax-tilt": "^1.7.67",
+    "react-parallax-tilt": "^1.7.154",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.6",
+    "styled-components": "^6.0.4",
     "tachyons": "^4.12.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^3.4.0"
   },
   "engines": {
     "node": "16.x",
@@ -24,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org me-so6 --project javascript-react ./build && sentry-cli sourcemaps upload --org me-so6 --project javascript-react ./build"
   },
   "eslintConfig": {
     "extends": [
